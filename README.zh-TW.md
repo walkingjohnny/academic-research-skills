@@ -311,9 +311,9 @@ claude.ai 的 Project 功能可以載入這些 skills，不需要安裝 Claude C
 
 **模式：** full、re-review（驗收）、quick、methodology-focus、guided
 
-### Academic Pipeline (v2.3)
+### Academic Pipeline (v2.4)
 
-9 階段調度器，含誠信驗證、兩階段審查、蘇格拉底指導：
+10 階段調度器，含誠信驗證、兩階段審查、蘇格拉底指導、協作品質評估：
 
 | 階段 | Skill | 目的 |
 |------|-------|------|
@@ -328,11 +328,13 @@ claude.ai 的 Project 功能可以載入這些 skills，不需要安裝 Claude C
 | 4'. 再修訂 | academic-paper | 最終修訂（若需要） |
 | **4.5. 最終誠信審查** | **integrity_verification_agent** | **100% 最終驗證（零問題要求）** |
 | 5. 定稿 | academic-paper | 詢問格式風格 → MD + DOCX + LaTeX → tectonic → PDF |
+| **6. 過程紀錄** | **pipeline** | **論文創建過程紀錄 + 協作品質評估（1–100 分）** |
 
 **Pipeline 保證：**
 - 每個階段都需使用者確認 checkpoint
 - 誠信驗證（Stage 2.5 + 4.5）不可跳過
 - 可重現 — 標準化流程，含完整稽核軌跡
+- Pipeline 完成後自動產出協作品質評估，含 6 維度誠實評分
 
 ---
 
@@ -364,6 +366,9 @@ HEEACT — 高等教育評鑑中心基金會
 ---
 
 ## 更新紀錄
+
+### v2.4 / v1.3 (2026-03-08)
+- **academic-pipeline v2.4**：新增 Stage 6 過程紀錄 — 自動生成結構化論文創建過程紀錄（MD → LaTeX → PDF，中英雙語）；必含最後一章：**協作品質評估**，6 個維度各計 1–100 分（方向設定、智識貢獻、品質把關、迭代紀律、委派效率、後設學習），含誠實回饋與改進建議；pipeline 從 9 階段擴展為 10 階段
 
 ### v2.3 / v1.3 (2026-03-08)
 - **academic-pipeline v2.3**：Stage 5 定稿階段現在會先詢問格式風格（APA 7.0 / Chicago / IEEE）；PDF 必須從 LaTeX 經 `tectonic` 編譯（禁止 HTML-to-PDF）；APA 7.0 使用 `apa7` document class（`man` 模式）+ XeCJK 支援中英雙語；字體：Times New Roman + 思源宋體 VF + Courier New

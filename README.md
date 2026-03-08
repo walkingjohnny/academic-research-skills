@@ -11,13 +11,14 @@ A comprehensive suite of Claude Code skills for academic research, covering the 
 - **Deep Research** — 10-agent research team with Socratic guided mode
 - **Academic Paper** — 10-agent paper writing with chapter-by-chapter planning
 - **Academic Paper Reviewer** — Multi-perspective peer review (EIC + 3 dynamic reviewers + Devil's Advocate)
-- **Academic Pipeline** — Full 9-stage pipeline orchestrator with integrity verification and Socratic revision coaching
+- **Academic Pipeline** — Full 10-stage pipeline orchestrator with integrity verification, Socratic revision coaching, and collaboration quality evaluation
 
 ### Full Pipeline
 
 ```
 Research → Write → Integrity Check → Review (5-person) → Socratic Coaching
   → Revise → Re-Review → Re-Revise → Final Integrity Check → Finalize
+  → Process Summary (with Collaboration Quality Evaluation)
 ```
 
 **Key Features:**
@@ -27,6 +28,7 @@ Research → Write → Integrity Check → Review (5-person) → Socratic Coachi
 4. Socratic revision coaching between review and revision stages
 5. Final integrity verification before publication
 6. Output: MD + DOCX + LaTeX (APA 7.0 `apa7` class / IEEE / Chicago) → PDF via tectonic
+7. Post-pipeline process summary with 6-dimension collaboration quality scoring (1–100)
 
 ---
 
@@ -311,9 +313,9 @@ You: "status"
 
 **Modes:** full, re-review (verification), quick, methodology-focus, guided
 
-### Academic Pipeline (v2.3)
+### Academic Pipeline (v2.4)
 
-9-stage orchestrator with integrity verification, two-stage review, and Socratic coaching:
+10-stage orchestrator with integrity verification, two-stage review, Socratic coaching, and collaboration evaluation:
 
 | Stage | Skill | Purpose |
 |-------|-------|---------|
@@ -328,11 +330,13 @@ You: "status"
 | 4'. RE-REVISE | academic-paper | Final revision (if needed) |
 | **4.5. FINAL INTEGRITY** | **integrity_verification_agent** | **100% final verification (zero issues required)** |
 | 5. FINALIZE | academic-paper | Ask format style → MD + DOCX + LaTeX → tectonic → PDF |
+| **6. PROCESS SUMMARY** | **pipeline** | **Paper creation process record + Collaboration Quality Evaluation (1–100)** |
 
 **Pipeline guarantees:**
 - Every stage requires user confirmation checkpoint
 - Integrity verification (Stage 2.5 + 4.5) cannot be skipped
 - Reproducible — standardized process with full audit trail
+- Post-pipeline collaboration evaluation with honest, evidence-based scoring
 
 ---
 
@@ -364,6 +368,9 @@ HEEACT — Higher Education Evaluation and Accreditation Council of Taiwan
 ---
 
 ## Changelog
+
+### v2.4 / v1.3 (2026-03-08)
+- **academic-pipeline v2.4**: New Stage 6 PROCESS SUMMARY — auto-generates structured paper creation process record (MD → LaTeX → PDF, bilingual); mandatory final chapter: **Collaboration Quality Evaluation** with 6 dimensions scored 1–100 (Direction Setting, Intellectual Contribution, Quality Gatekeeping, Iteration Discipline, Delegation Efficiency, Meta-Learning), honest feedback, and improvement recommendations; pipeline expanded from 9 to 10 stages
 
 ### v2.3 / v1.3 (2026-03-08)
 - **academic-pipeline v2.3**: Stage 5 FINALIZE now prompts for formatting style (APA 7.0 / Chicago / IEEE); PDF must compile from LaTeX via `tectonic` (no HTML-to-PDF); APA 7.0 uses `apa7` document class (`man` mode) with XeCJK for bilingual CJK support; font stack: Times New Roman + Source Han Serif TC VF + Courier New

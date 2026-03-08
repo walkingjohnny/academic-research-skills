@@ -6,6 +6,24 @@ Cross-skill fixes and update history.
 
 ## 2026-03-08
 
+### academic-pipeline v2.4 — Stage 6 Process Summary + Collaboration Quality Evaluation
+
+**Files changed**: `academic-pipeline/SKILL.md`, `README.md`, `README.zh-TW.md`
+
+**academic-pipeline v2.4**:
+- New Stage 6 PROCESS SUMMARY: auto-generates structured paper creation process record after pipeline completion
+- Asks user preferred language (zh/en/both), generates MD → LaTeX → PDF
+- Mandatory final chapter: **Collaboration Quality Evaluation** — 6 dimensions scored 1–100:
+  - Direction Setting, Intellectual Contribution, Quality Gatekeeping
+  - Iteration Discipline, Delegation Efficiency, Meta-Learning
+- Includes: What Worked Well, Missed Opportunities, Recommendations, Human vs AI Value-Add, Claude's Self-Reflection
+- Pipeline expanded from 9 to 10 stages (state machine, dashboard, audit trail updated)
+- Scoring rubric: 90-100 Exceptional / 75-89 Excellent / 60-74 Good / 40-59 Basic / 1-39 Needs Improvement
+
+**Lesson**: pandoc's newer longtable output uses `\real{}` macro which requires `\usepackage{calc}` in the LaTeX wrapper
+
+---
+
 ### academic-pipeline v2.3 — APA 7.0 Formatting & LaTeX-to-PDF
 
 **Files changed**: `academic-pipeline/SKILL.md`, `README.md`, `README.zh-TW.md`
