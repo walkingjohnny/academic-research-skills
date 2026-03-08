@@ -9,7 +9,7 @@ A comprehensive suite of Claude Code skills for academic research, covering the 
 ## Features
 
 - **Deep Research** — 13-agent research team with Socratic guided mode + systematic review / PRISMA
-- **Academic Paper** — 12-agent paper writing with visualization, revision coaching, and citation conversion
+- **Academic Paper** — 12-agent paper writing with LaTeX output hardening, visualization, revision coaching, and citation conversion
 - **Academic Paper Reviewer** — Multi-perspective peer review with 0-100 quality rubrics (EIC + 3 dynamic reviewers + Devil's Advocate)
 - **Academic Pipeline** — Full 10-stage pipeline orchestrator with adaptive checkpoints, claim verification, and material passport
 
@@ -38,7 +38,7 @@ Research → Write → Integrity Check → Review (5-person) → Socratic Coachi
 
 > **Recommended model: Claude Opus 4.6** with **Max plan** (or equivalent extended-thinking configuration).
 >
-> The full academic pipeline (9 stages) consumes a **large amount of tokens** — a single end-to-end run can exceed 200K input + 100K output tokens depending on paper length and revision rounds. Use at your discretion and budget accordingly.
+> The full academic pipeline (10 stages) consumes a **large amount of tokens** — a single end-to-end run can exceed 200K input + 100K output tokens depending on paper length and revision rounds. Use at your discretion and budget accordingly.
 >
 > Individual skills (e.g., `deep-research` alone, or `academic-paper-reviewer` alone) consume significantly less.
 
@@ -287,7 +287,7 @@ You: "status"
 
 **Modes:** full, quick, paper-review, lit-review, fact-check, socratic, **systematic-review** (new)
 
-### Academic Paper (v2.3)
+### Academic Paper (v2.4)
 
 12-agent pipeline for academic paper writing:
 
@@ -301,7 +301,7 @@ You: "status"
 | Citation Compliance | Multi-format citation audit + APA↔Chicago↔MLA↔IEEE↔Vancouver conversion |
 | Abstract Bilingual | EN + Chinese abstracts |
 | Peer Reviewer | 5-dimension review (max 2 rounds) |
-| Formatter | LaTeX/DOCX/PDF output |
+| Formatter | LaTeX/DOCX/PDF output — mandatory `apa7` class, XeCJK bilingual, `ragged2e` justification fix, tectonic compilation |
 | Socratic Mentor | Chapter-by-chapter guided planning with convergence criteria |
 | Visualization Agent | 9 chart types, matplotlib/ggplot2, APA 7.0 standards |
 | Revision Coach Agent | Parses unstructured reviewer comments → Revision Roadmap |
@@ -381,9 +381,9 @@ https://github.com/Imbad0202/academic-research-skills
 
 ## Changelog
 
-### v2.6 / v2.3 / v1.4 (2026-03-08) — 15 Improvements
+### v2.6 / v2.4 / v1.4 (2026-03-08) — 15+ Improvements
 - **deep-research v2.3**: New systematic-review / PRISMA mode (7th); 3 new agents (risk_of_bias, meta_analysis, monitoring); PRISMA protocol/report templates; Socratic convergence criteria (4 signals + auto-end); Quick Mode Selection Guide
-- **academic-paper v2.3**: 2 new agents (visualization, revision_coach); revision tracking template with 4 status types; citation format conversion (APA↔Chicago↔MLA↔IEEE↔Vancouver); statistical visualization standards; Socratic convergence criteria; revision recovery example
+- **academic-paper v2.4**: 2 new agents (visualization, revision_coach); revision tracking template with 4 status types; citation format conversion (APA↔Chicago↔MLA↔IEEE↔Vancouver); statistical visualization standards; Socratic convergence criteria; revision recovery example; **LaTeX output hardening** — mandatory `apa7` document class, text justification fix (`ragged2e` + `etoolbox`), table column width formula, bilingual abstract centering, standardized font stack (Times New Roman + Source Han Serif TC VF + Courier New), PDF via tectonic only
 - **academic-paper-reviewer v1.4**: Quality rubrics with 0-100 scoring and behavioral indicators; decision mapping (≥80 Accept, 65-79 Minor, 50-64 Major, <50 Reject); Quick Mode Selection Guide
 - **academic-pipeline v2.6**: Adaptive checkpoint system (FULL/SLIM/MANDATORY); Phase E Claim Verification in integrity checks; Material Passport for mid-entry provenance; cross-skill mode advisor (14 scenarios); team collaboration protocol; enhanced handoff schemas (9 schemas); integrity failure recovery example
 

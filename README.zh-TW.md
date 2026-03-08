@@ -9,7 +9,7 @@
 ## 功能特色
 
 - **Deep Research** — 13 個 Agent 組成的研究團隊，支援蘇格拉底引導 + 系統性文獻回顧 / PRISMA
-- **Academic Paper** — 12 個 Agent 的論文撰寫團隊，含視覺化、修訂教練、引用格式轉換
+- **Academic Paper** — 12 個 Agent 的論文撰寫團隊，含 LaTeX 輸出強化、視覺化、修訂教練、引用格式轉換
 - **Academic Paper Reviewer** — 多視角同儕審查，0-100 品質量表（主編 + 3 位動態審查者 + 魔鬼代言人）
 - **Academic Pipeline** — 10 階段全流程調度器，含自適應 checkpoint、宣稱驗證、素材護照
 
@@ -37,7 +37,7 @@
 
 > **建議模型：Claude Opus 4.6**，搭配 **Max plan**（或同等的延伸思考設定）。
 >
-> 完整學術 pipeline（9 階段）會消耗**大量 token** — 單次完整執行可能超過 200K 輸入 + 100K 輸出 token，視論文長度和修訂輪數而定。請依預算斟酌使用。
+> 完整學術 pipeline（10 階段）會消耗**大量 token** — 單次完整執行可能超過 200K 輸入 + 100K 輸出 token，視論文長度和修訂輪數而定。請依預算斟酌使用。
 >
 > 單獨使用個別 skill（如只用 `deep-research` 或 `academic-paper-reviewer`）的消耗明顯較少。
 
@@ -286,7 +286,7 @@ claude.ai 的 Project 功能可以載入這些 skills，不需要安裝 Claude C
 
 **模式：** full、quick、paper-review、lit-review、fact-check、socratic、**systematic-review**（新增）
 
-### Academic Paper (v2.3)
+### Academic Paper (v2.4)
 
 12 個 Agent 的學術論文撰寫 pipeline：
 
@@ -300,7 +300,7 @@ claude.ai 的 Project 功能可以載入這些 skills，不需要安裝 Claude C
 | Citation Compliance | 多格式引用審核 + APA↔Chicago↔MLA↔IEEE↔Vancouver 轉換 |
 | Abstract Bilingual | 中英雙語摘要 |
 | Peer Reviewer | 5 維度審查（最多 2 輪） |
-| Formatter | LaTeX/DOCX/PDF 輸出 |
+| Formatter | LaTeX/DOCX/PDF 輸出 — 強制 `apa7` class、XeCJK 雙語、`ragged2e` 對齊修正、tectonic 編譯 |
 | Socratic Mentor | 逐章引導規劃，含收斂準則 |
 | Visualization Agent | 9 種圖表類型、matplotlib/ggplot2、APA 7.0 標準 |
 | Revision Coach Agent | 解析非結構化審稿意見 → 修訂路線圖 |
@@ -380,9 +380,9 @@ https://github.com/Imbad0202/academic-research-skills
 
 ## 更新紀錄
 
-### v2.6 / v2.3 / v1.4 (2026-03-08) — 15 項改進
+### v2.6 / v2.4 / v1.4 (2026-03-08) — 15+ 項改進
 - **deep-research v2.3**：新增系統性文獻回顧 / PRISMA 模式（第 7 模式）；3 個新 agent（risk_of_bias、meta_analysis、monitoring）；PRISMA 協議/報告模板；蘇格拉底收斂準則（4 訊號 + 自動結束）；快速模式選擇指南
-- **academic-paper v2.3**：2 個新 agent（visualization、revision_coach）；修訂追蹤模板含 4 種狀態；引用格式轉換（APA↔Chicago↔MLA↔IEEE↔Vancouver）；統計視覺化標準；蘇格拉底收斂準則；修訂復原範例
+- **academic-paper v2.4**：2 個新 agent（visualization、revision_coach）；修訂追蹤模板含 4 種狀態；引用格式轉換（APA↔Chicago↔MLA↔IEEE↔Vancouver）；統計視覺化標準；蘇格拉底收斂準則；修訂復原範例；**LaTeX 輸出強化** — 強制 `apa7` document class、`ragged2e` + `etoolbox` 文字對齊修正、表格欄寬公式、雙語摘要置中、標準字體集（Times New Roman + 思源宋體 VF + Courier New）、僅 tectonic 編譯 PDF
 - **academic-paper-reviewer v1.4**：0-100 品質量表含行為指標；決策對照（≥80 接受、65-79 小修、50-64 大修、<50 退稿）；快速模式選擇指南
 - **academic-pipeline v2.6**：自適應 checkpoint（FULL/SLIM/MANDATORY）；Phase E 宣稱驗證；素材護照（Material Passport）支援中途進入；跨 skill 模式顧問（14 情境）；團隊協作協議；強化銜接 schema（9 個含驗證規則）；誠信審查失敗復原範例
 
