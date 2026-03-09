@@ -49,6 +49,7 @@
 | [複審](examples/showcase/stage3prime_rereview_report.pdf) | 修訂後驗證審查 |
 | [同儕審查第二輪](examples/showcase/stage3_review_report_r2.pdf) | 追蹤審查 |
 | [回覆審查意見](examples/showcase/response_to_reviewers_r2.pdf) | 逐點回覆 |
+| [出版後稽核報告](examples/showcase/post_publication_audit_2026-03-09.md) | 獨立全引用稽核：發現 21/68 篇問題，通過了 3 輪誠信審查仍漏網 |
 
 ---
 
@@ -396,7 +397,7 @@ claude.ai 的 Project 功能可以載入這些 skills，不需要安裝 Claude C
 |------|-------|------|
 | 1. 研究 | deep-research | 釐清研究問題、搜尋文獻 |
 | 2. 撰寫 | academic-paper | 撰寫論文初稿 |
-| **2.5. 誠信審查** | **integrity_verification_agent** | **100% 引用與數據驗證** |
+| **2.5. 誠信審查** | **integrity_verification_agent** | **100% 引用與數據驗證（v2.0：反幻覺強制令）** |
 | 3. 審稿 | academic-paper-reviewer | 5 人審查（主編 + R1/R2/R3 + 魔鬼代言人） |
 | → | *蘇格拉底修訂指導* | *引導使用者理解審稿意見* |
 | 4. 修訂 | academic-paper | 回應審稿意見 |
@@ -442,6 +443,12 @@ https://github.com/Imbad0202/academic-research-skills
 ---
 
 ## 更新紀錄
+
+### v2.7 (2026-03-09) — 誠信驗證 v2.0：反幻覺全面改版
+- **integrity_verification_agent v2.0**：Anti-Hallucination Mandate（禁止靠 AI 記憶驗證）、消除灰色地帶分類（僅 VERIFIED/NOT_FOUND/MISMATCH）、強制 WebSearch audit trail、Stage 4.5 獨立全面驗證、Gray-Zone Prevention Rule
+- **已知引用幻覺 Pattern**：5 類分類法（TF/PAC/IH/PH/SH，來自 GPTZero × NeurIPS 2025 研究）、5 種複合欺騙模式、實戰案例、文獻統計
+- **出版後稽核**：對全部 68 篇引用做 WebSearch 逐一驗證，發現 21 篇有問題（31% 錯誤率），證明外部查證的必要性
+- **論文修正**：移除 4 篇捏造引用、修正 6 篇作者錯誤、修正 7 篇書目細節、修正 2 篇格式問題
 
 ### v2.6.2 (2026-03-09) — 意圖匹配模式啟動
 - **deep-research**：蘇格拉底模式改為**意圖匹配**啟動，取代關鍵字比對。支援任何語言 — 偵測含義（如「使用者想要引導式思考」）而非比對特定字串。

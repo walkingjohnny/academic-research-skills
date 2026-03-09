@@ -50,6 +50,7 @@ See the complete artifacts from a real 10-stage pipeline run — including **pee
 | [Re-Review](examples/showcase/stage3prime_rereview_report.pdf) | Verification after revisions |
 | [Peer Review Round 2](examples/showcase/stage3_review_report_r2.pdf) | Follow-up review |
 | [Response to Reviewers](examples/showcase/response_to_reviewers_r2.pdf) | Point-by-point author response |
+| [Post-Publication Audit Report](examples/showcase/post_publication_audit_2026-03-09.md) | Independent full-reference audit: found 21/68 issues missed by 3 rounds of integrity checks |
 
 ---
 
@@ -397,7 +398,7 @@ You: "status"
 |-------|-------|---------|
 | 1. RESEARCH | deep-research | Clarify RQ, find literature |
 | 2. WRITE | academic-paper | Draft the paper |
-| **2.5. INTEGRITY** | **integrity_verification_agent** | **100% reference & data verification** |
+| **2.5. INTEGRITY** | **integrity_verification_agent** | **100% reference & data verification (v2.0: anti-hallucination mandate)** |
 | 3. REVIEW | academic-paper-reviewer | 5-person review (EIC + R1/R2/R3 + Devil's Advocate) |
 | → | *Socratic Revision Coaching* | *Guide user through review feedback* |
 | 4. REVISE | academic-paper | Address review comments |
@@ -443,6 +444,12 @@ https://github.com/Imbad0202/academic-research-skills
 ---
 
 ## Changelog
+
+### v2.7 (2026-03-09) — Integrity Verification v2.0: Anti-Hallucination Overhaul
+- **integrity_verification_agent v2.0**: Anti-Hallucination Mandate (no AI memory verification), eliminated gray-zone classifications (VERIFIED/NOT_FOUND/MISMATCH only), mandatory WebSearch audit trail for every reference, Stage 4.5 fresh independent verification, Gray-Zone Prevention Rule
+- **Known Hallucination Patterns**: 5-type taxonomy (TF/PAC/IH/PH/SH) from GPTZero × NeurIPS 2025 study, 5 compound deception patterns, real-world case study, literature statistics
+- **Post-publication audit**: Full WebSearch verification of all 68 references found 21 issues (31% error rate) that passed 3 rounds of integrity checks — proving the necessity of external verification
+- **Paper corrections**: Removed 4 fabricated references, fixed 6 author errors, corrected 7 metadata errors, fixed 2 format issues
 
 ### v2.6.2 (2026-03-09) — Intent-Based Mode Activation
 - **deep-research**: Socratic mode now uses **intent-based activation** instead of keyword matching. Works in any language — detects meaning (e.g., "user wants guided thinking") rather than matching specific strings.
